@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>bucket</title>
+        <link rel='stylesheet' type='text/css' href='css/style.css' />
+        <link rel='stylesheet' type='text/css' href='bucket.css' />
+        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
+        <style>
+body {
+    max-width:600px;
+    margin:20px auto;
+}
+        </style>
+    </head>
+    <body>
+        <div class='bucket-actions'>
+            <button id='save'>At least one field required to geocode</button>
+        </div>
+        <div class='bucket-deposit'>
+            <div class='bucket-join'>
+                <div class='bucket'>City</div><div class='bucket'>State</div><div class='bucket'>ZIP</div><div class='bucket'>Country</div>
+            </div>
+        </div>
+        <div class='example'></div>
+        <div class='bucket-store'>
+            <div class='bucket-source'>city</div>
+            <div class='bucket-source'>state</div>
+            <div class='bucket-source'>foo</div>
+            <div class='bucket-source'>bar</div>
+        </div>
+        <script src='js/d3.v3.min.js'></script>
+        <script src='bucket.js'></script>
+        <script>
+        var broker = bucket();
+        d3.selectAll('.bucket-deposit .bucket').call(broker.deposit());
+        d3.selectAll('.bucket-store .bucket-source').call(broker.store());
+        </script>
+    </body>
+</html>
